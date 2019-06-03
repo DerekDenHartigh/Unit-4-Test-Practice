@@ -15,3 +15,18 @@ asked to…
         ○ Creates an Express server that contains routes for each CRUD command.
         
         ○ Write queries to manipulate a PostgreSQL database.
+
+
+General app layout:
+    home page - game description, some links
+    hero page - earthworm jim image, alignment, maybe a bio
+    villain page - each villain pictured, named
+
+User stories:
+    user can navigate between routes via the header links #!'s
+    user can see hero/villains displayed and read their names/info
+    user can add villains 
+    user can remove villains by name
+    user can modify villain information - including images
+    user see's a fallback image for broken image paths
+    user is alerted when invalid villain is targeted for removal/updating
