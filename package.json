@@ -1,0 +1,15 @@
+{
+  "name": "unit-4-practice",
+  "version": "1.0.0",
+  "description": "a practice app for the unit 4 test, earthwom jim themed",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Derek DenHartigh",
+  "license": "ISC",
+  "devDependencies": {
+    "karma": "^4.1.0"
+  }
+}
