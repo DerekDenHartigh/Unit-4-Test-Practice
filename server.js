@@ -1,7 +1,6 @@
 "use strict";
 
 const express = require('express');
-
 const router = require("./routing.js");
 const app = express();
 app.use(express.json());

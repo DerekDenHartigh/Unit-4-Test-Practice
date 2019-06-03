@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();  // Router has to be capital
-const secret = require("/secret.js");
+const secret = require("./secret.js");
 const pg = require('pg');
 const pool = new pg.Pool({
     user: "postgres",

@@ -11,5 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "karma": "^4.1.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.11.0"
   }
 }
