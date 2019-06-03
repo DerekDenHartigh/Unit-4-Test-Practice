@@ -57,7 +57,7 @@ router.post("/villains", (req, res) => {
 
 // PUT
     // name
-    router.put("/villains", (req, res) => {
+    router.put("/villainsName", (req, res) => {
         let oldName = req.body.character_name;
         let newName = req.body.newName;
         console.log(req.body.item_id, req.body.quantity);
@@ -74,7 +74,7 @@ router.post("/villains", (req, res) => {
         });
 
     // image
-    router.put("/villains", (req, res) => {
+    router.put("/villainsImage", (req, res) => {
         let name = req.body.character_name;
         let newImage = req.body.character_image;
         console.log(req.body.item_id, req.body.quantity);
