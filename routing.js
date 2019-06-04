@@ -32,8 +32,9 @@ router.get("/hero", (req, res) => {
     });
 
 router.get("/villains", (req, res) => {
-   //pool.query("SELECT * FROM earthworm_jim_characters WHERE character_alignment = 'Evil';")
-   pool.query('SELECT * FROM earthworm_jim_characters WHERE character_alignment = \'Evil\';')        .then((result)=>{
+   pool.query("SELECT * FROM earthworm_jim_characters WHERE character_alignment = 'Evil';")
+   //pool.query('SELECT * FROM earthworm_jim_characters WHERE character_alignment = \'Evil\';')
+   .then((result)=>{
             console.log(result.rows);
             res.send(result.rows);
         })

@@ -9,6 +9,6 @@ function HomeController(earthwormJimService) {
 angular
 .module('EarthwormJimApp')  
 .component('home', {
-    templateUrl: './public/app/components/home/homeTemplate.html',
+    templateUrl: '/app/components/home/homeTemplate.html',
     controller: HomeController
 });

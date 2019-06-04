@@ -7,9 +7,8 @@ angular
 
     // GET
     service.getCharacters = (currentUrl)=>{
-        let pageUrl = currentUrl; // doing this so that I can re-use same code for hero/villains
         return $http({
-            url: `/${pageUrl}`,
+            url: `${currentUrl}`, // hero or villains
             method: "GET"
         })
         .then((response)=>{

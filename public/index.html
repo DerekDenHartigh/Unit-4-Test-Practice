@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="EarthwormJimApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/app/stylesheets/CSS Reset.css">
+    <link rel="stylesheet" href="/app/stylesheets/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Earthworm Jim</title>
+</head>
+<body class="flex">
+    <header class="flex">
+            <img id="logo" src="/app/assets/EarthwormJimLogo.png">
+                <!--sauce https://fanart.tv/fanart/tv/76993/clearlogo/EarthwormJim-76993.png-->
+            <h1 class="flex nav-item" id="hero"><a class="flex" href="#!/hero">The Hero</a></h1>
+            <h1 class="flex nav-item" id="home"><a class="flex" href="#!/home">Home</a></h1>
+            <h1 class="flex nav-item" id="villains"><a class="flex" href="#!/villains">The Villains</a></h1>
+    </header>
+
+
+    <main ng-view ng-cloak class="flex">
+    </main>
+
+
+    <footer>
+
+    </footer>
+
+    <script src="https://code.angularjs.org/1.7.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="/app/app.module.js"></script>
+    <script src="/app/app.config.js"></script>
+    <script src="/app/earthwormJimService.js"></script>
+    <script src="/app/components/fallback-src.js"></script>
+    <script src="/app/components/hero/hero.js"></script>
+    <script src="/app/components/villains/villains.js"></script>
+    <script src="/app/components/home/home.js"></script>
+</body>
+</html>

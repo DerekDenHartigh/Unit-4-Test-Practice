@@ -1,3 +1,106 @@
 .flex{
     display: flex;
 }
+*{
+    font-family: 'Press Start 2P', cursive;
+}
+body{
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    background-color: black;
+}
+
+header{
+    width: 90%;
+    background-color: #FFD800;
+    padding: 5px;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: space-around;
+    align-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+    .nav-item{
+        /* color: #087ED8; */
+        color: white;
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        background-color: #CF0000; 
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 1.5em;
+    }
+
+#module-header{
+    color:white;
+    font-size: 2.5em;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+
+home{
+    background-color: black;
+}
+
+/* Villains */
+
+villains, hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+
+.villain-container{
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.villain-post{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+
+.villainName{
+    color: white;
+    margin: 10px;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+.villainImage{
+    width: auto;
+    height: auto;
+    border: solid #CF0000 2px;
+    border-radius: 5px;
+    padding: 15px;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}

@@ -1,0 +1,7 @@
+<h1 id="module-header">The Villains!</h1>
+<div class="villain-container" class="flex">
+    <div class="flex villain-post" ng-repeat="villain in $ctrl.villainList">
+        <h1 class="villainName">{{villain.character_name}}</h1>
+        <img class="villainImage" ng-src="{{villain.character_image}}" fallback-src="https://www.kargomaster.com/pub/media/catalog/product/placeholder/default/sorry-image-not-available.jpg" ng-click="show=!show"></img>
+    </div>
+</div>

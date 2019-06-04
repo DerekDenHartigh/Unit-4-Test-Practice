@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("MovieApp")
+angular.module("EarthwormJimApp")
 .config(["$routeProvider", ($routeProvider) => {
     $routeProvider
     .when("/home", {
