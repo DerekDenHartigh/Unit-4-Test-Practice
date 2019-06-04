@@ -30,3 +30,6 @@ User stories:
     user can modify villain information - including images
     user see's a fallback image for broken image paths
     user is alerted when invalid villain is targeted for removal/updating
+
+
+FYI a lot of the text was shamelessly ripped from the internet from wikipedia and 

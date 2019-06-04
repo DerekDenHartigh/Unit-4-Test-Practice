@@ -19,6 +19,25 @@ function VillainController(earthwormJimService, $location) {
     };
     ctrl.getCharacters();
 
+
+    ctrl.renameVillain = (oldName, newName)=>{
+        console.log(oldName, newName);
+    };
+
+    ctrl.changeVillainImage = (villainName, newImage)=>{
+        console.log(villainName, newImage);
+    };
+
+    ctrl.changeVillainImage = (villainName, newImage)=>{
+        console.log(villainName, newImage);
+    };
+
+    ctrl.destroyVillain = (villainName)=>{
+        console.log(villainName);
+    };
+  
+
+
     }
 
 angular

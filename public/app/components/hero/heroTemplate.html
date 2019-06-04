@@ -1,0 +1,8 @@
+<h1 id="module-header">The Hero of this Story!<br>Earthworm Jim!</h1>
+<div class="jim-container" class="flex">    
+    <div class="flex jim-post" ng-repeat="jim in $ctrl.jim">
+        <h1 class="jimName">{{jim.character_name}}</h1>
+        <img class="jimImage" ng-src="{{jim.character_image}}" fallback-src="https://www.kargomaster.com/pub/media/catalog/product/placeholder/default/sorry-image-not-available.jpg" ng-click="show=!show"></img>
+    </div>
+</div>
+<p id="jimSynopsis">For most of his life Jim was just an ordinary earthworm until one day his life was changed forever. A fearsome bounty hunter named Psy-Crow was en route to deliver the "Super Suit" (technically titled "Ultra-high-tech-indestructible-super-space-cyber-suit") to Queen Slug-For-A-Butt but got in a confrontation with another space ship and lost the suit out of an airlock. The suit fell down to Earth, where Jim happened to crawl in and discovered newfound powers granted by the suit, mainly the strength and dexterity of a human.</p>

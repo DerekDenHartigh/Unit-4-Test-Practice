@@ -1,7 +1,29 @@
 <h1 id="module-header">The Villains!</h1>
 <div class="villain-container" class="flex">
     <div class="flex villain-post" ng-repeat="villain in $ctrl.villainList">
-        <h1 class="villainName">{{villain.character_name}}</h1>
+        <div class="villainText">
+            <h1 class="villainName">{{villain.character_name}}</h1>
+            <div class="functionContainer">
+                <label>Rename Villain:
+                    <br><input class="villainInput" type="text" ng-model="villain.newName" placeholder="new name here">
+                    <br><button class="villainButton" ng-click="$ctrl.renameVillain(villain.character_name, villain.newName)">Rename!</button>
+                </label>
+
+                <label>Change Villain's image:
+                    <br><input class="villainInput" type="text" ng-model="villain.newImage" placeholder="drop an img url">
+                    <br><button class="villainButton" ng-click="$ctrl.changeVillainImage(villain.character_name, villain.newImage)">Change Image!</button>
+                </label>
+
+                <!-- <label>Change Villain's name & image:
+                    <input class="villainInput" type="text" ng-model="villain.newImage" placeholder="drop an img url">
+                    <button class="villainButton" ng-click="$ctrl.changeVillainImage(villain.character_name, villain.newImage)">Change Image!</button>
+                </label> -->
+
+                <label>Destroy Villain:
+                    <br><button class="villainButton" ng-click="$ctrl.destroyVillain(villain.character_name)">Destroy!</button>
+                </label>
+            </div>
+        </div>
         <img class="villainImage" ng-src="{{villain.character_image}}" fallback-src="https://www.kargomaster.com/pub/media/catalog/product/placeholder/default/sorry-image-not-available.jpg" ng-click="show=!show"></img>
     </div>
 </div>
