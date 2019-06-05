@@ -1,10 +1,10 @@
 "use strict";
 
 angular.module("EarthwormJimApp")
-.config(["$routeProvider", ($routeProvider) => {
-    $routeProvider
-    .when("/home", {
-        template: "<home></home>"
+.config(["$routeProvider", ($routeProvider) => { // config dependency is routeProvider, uses it for routing
+    $routeProvider // imported server
+    .when("/home", { // when url is here,
+        template: "<home></home>" // use this template
     })
     .when("/hero", {
         template: "<hero></hero>"
@@ -12,7 +12,7 @@ angular.module("EarthwormJimApp")
     .when("/villains", {
         template: "<villains></villains>"
     })
-    .otherwise({
+    .otherwise({ // if url is anything other than these options, default to /home
         redirectTo: "/home"
     })
 }]);

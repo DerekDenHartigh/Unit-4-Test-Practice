@@ -6,11 +6,9 @@ function HeroController(earthwormJimService, $location) {
     ctrl.jim; // set by getCharacters
 
     ctrl.getCharacters = ()=>{
-        let url = $location.url();
-        console.log(url); //  "/hero"
+        let url = $location.url(); // grabs current location
         ctrl.service.getCharacters(url)
         .then((data)=>{
-            console.log(data);
             ctrl.jim = data;
         })
         .catch((err)=>{
