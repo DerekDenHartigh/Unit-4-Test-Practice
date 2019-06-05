@@ -9,10 +9,8 @@ function VillainController(earthwormJimService, $location) {
 
     ctrl.getCharacters = ()=>{
         let url = $location.url();
-        console.log(url); //  "/villains"
         ctrl.service.getCharacters(url)
         .then((data)=>{
-            console.log(data);
             ctrl.villainList = data;
         })
         .catch((err)=>{
@@ -24,7 +22,6 @@ function VillainController(earthwormJimService, $location) {
 
     ctrl.renameVillain = (oldName, newName)=>{
         let url = $location.url();
-        console.log(oldName, newName);
         let newVillain = {
             character_name: oldName,
             newName: newName
@@ -33,7 +30,6 @@ function VillainController(earthwormJimService, $location) {
         .then(()=>{
             ctrl.service.getCharacters(url)
             .then((data)=>{
-                console.log(data);
                 ctrl.villainList = data;
             })
             .catch((err)=>{
@@ -44,7 +40,6 @@ function VillainController(earthwormJimService, $location) {
 
     ctrl.changeVillainImage = (villainName, newImage)=>{
         let url = $location.url();
-        console.log(villainName, newImage);
         let newVillain = {
             character_name: villainName,
             character_image: newImage
@@ -53,7 +48,6 @@ function VillainController(earthwormJimService, $location) {
         .then(()=>{
             ctrl.service.getCharacters(url)
             .then((data)=>{
-                console.log(data);
                 ctrl.villainList = data;
             })
             .catch((err)=>{
@@ -64,12 +58,10 @@ function VillainController(earthwormJimService, $location) {
 
     ctrl.destroyVillain = (villainName)=>{
         let url = $location.url();
-        console.log(villainName);
         ctrl.service.deleteVillain(villainName)
         .then(()=>{
             ctrl.service.getCharacters(url)
             .then((data)=>{
-                console.log(data);
                 ctrl.villainList = data;
             })
             .catch((err)=>{
@@ -80,18 +72,15 @@ function VillainController(earthwormJimService, $location) {
   
     ctrl.createVillain = (name, image)=>{
         let url = $location.url();
-        console.log(name, image);
         let newVillain = {
             character_name: name,
             character_image: image,
             character_alignment: "Evil"
         };
-        console.log(newVillain);
         ctrl.service.createVillain(newVillain)
         .then(()=>{
             ctrl.service.getCharacters(url)
             .then((data)=>{
-                console.log(data);
                 ctrl.villainList = data;
             })
             .catch((err)=>{

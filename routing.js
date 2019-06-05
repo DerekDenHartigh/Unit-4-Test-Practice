@@ -23,7 +23,6 @@ router.get("/hero", (req, res) => {
     //pool.query("SELECT * FROM earthworm_jim_characters WHERE character_alignment = 'Good';")
     pool.query('SELECT * FROM earthworm_jim_characters WHERE character_alignment = \'Good\';')
         .then((result)=>{
-            console.log(result.rows);
             res.send(result.rows);
         })
         .catch((error)=>{
@@ -35,7 +34,6 @@ router.get("/villains", (req, res) => {
    pool.query("SELECT * FROM earthworm_jim_characters WHERE character_alignment = 'Evil';")
    //pool.query('SELECT * FROM earthworm_jim_characters WHERE character_alignment = \'Evil\';')
    .then((result)=>{
-            console.log(result.rows);
             res.send(result.rows);
         })
         .catch((error)=>{
@@ -81,27 +79,44 @@ router.post("/villains", (req, res) => {
         let sql = `UPDATE earthworm_jim_characters SET character_image = '${newImage}' WHERE character_name = '${name}';`;
         pool.query(sql)
         .then((result)=>{
-            console.log("updated item quantity");
+            console.log("Villain Image Changed")
             res.status(204);
-            res.send("updated item quantity");
+            res.send("Image Change Successful")
         })
         .catch((error)=>{
             console.error(error);
         });
-        });
+    });
 
 // DELETE
-router.delete("/villains", (req, res) => {
-    let name = req.body;
-    console.error(name);
-    let sql = `DELETE FROM earthworm_jim_characters WHERE character_name = '${name}';`;
+    // Looks like you can't pass req.body on a delete request...
+    // router.delete("/villains", (req, res) => {
+    //     console.log(req); // returning an empty obj {} ?
+    //     console.log(req.body);
+    //     // let name = req.body.targetName;
+    //     let name = req.body; // should be the villain name, not {}
+    //     console.log(name);
+    //     let sql = `DELETE FROM earthworm_jim_characters WHERE character_name = '${name}';`;  // I've tested this in SQL it works
+    //     console.log(name, sql);
+    //     pool.query(sql)
+    //     .then((result) => {
+    //         res.status(204);
+    //         res.send(`Deleted ${name} from the Villains list, did they die or have a change of heart?`);
+    //     })
+    //     .catch((err)=>{
+    //         console.error(err);
+    //     });
+    // });
+
+    router.delete("/villains/:id", (req, res) => {
+        let name = req.params.id;
+        let sql = `DELETE FROM earthworm_jim_characters WHERE character_name = '${name}';`;
         pool.query(sql)
         .then((result) => {
-            res.status(204).send(`Deleted ${name} from the Villains list, did they die or have a change of heart?`);
-        })
-        .catch((err)=>{
-            console.error(err);
+            res.status(204); // No Content
+            res.send(`Deleted item id# ${req.params.id}, refresh cart`);
         });
     });
+    
     
 module.exports = router;

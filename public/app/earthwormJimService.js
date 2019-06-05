@@ -12,7 +12,6 @@ angular
             method: "GET"
         })
         .then((response)=>{
-            console.log(response);
             return response.data;
         })
         .catch((err)=>{
@@ -29,66 +28,11 @@ angular
             data: newVillain
             })
         .then((response)=>{
-            console.log(response);
             return response.data;
         });
     };
 
-    // PUT - name and image - not sure if it is ok to have two http reqs stacked like that
-    // service.updateVillain = (villainUpdate)=>{
-    //     if(villainUpdate.nameUpdate === true && villainUpdate.imageUpdate === true){
-    //         $http({ //image
-    //             url: "/villainsImage",
-    //             data: villainUpdate,
-    //             method: "PUT"
-    //         })
-    //         .then((response)=>{
-    //             console.log(`villain image updated`);
-    //         })
-    //         .catch((error)=>{
-    //             console.error(error);
-    //         });
-    //         $http({ //name
-    //             url: "/villainsImage",
-    //             data: villainUpdate,
-    //             method: "PUT"
-    //         })
-    //         .then((response)=>{
-    //             console.log(`villain name updated from ${villainUpdate.character_name} to ${villainUpdate.newName}`);
-    //         })
-    //         .catch((error)=>{
-    //             console.error(error);
-    //         });  // need a return here
-    //     } else if (villainUpdate.nameUpdate === true && villainUpdate.imageUpdate === false) {
-    //         return $http({
-    //             url: "/villainsImage",
-    //             data: villainUpdate,
-    //             method: "PUT"
-    //         })
-    //         .then((response)=>{
-    //             console.log(`villain name updated from ${villainUpdate.character_name} to ${villainUpdate.newName}`);
-    //         })
-    //         .catch((error)=>{
-    //             console.error(error);
-    //         });
-    //     } else if (villainUpdate.imageUpdate === true && villainUpdate.nameUpdate === false) {
-    //         return $http({
-    //             url: "/villainsImage",
-    //             data: villainUpdate,
-    //             method: "PUT"
-    //         })
-    //         .then((response)=>{
-    //             console.log(`villain image updated`);
-    //         })
-    //         .catch((error)=>{
-    //             console.error(error);
-    //         }); 
-    //     } else {
-    //         console.error("An impossibility has occurred");
-    //         return;
-    //     };
-    // };
-
+    // PUT
     service.updateVillainName = (villainUpdate)=>{
         console.warn(villainUpdate.character_name, villainUpdate.newName)
         return $http({ //image
@@ -98,7 +42,7 @@ angular
         })
         .then((response)=>{
             console.log(`villain name updated from ${villainUpdate.character_name} to ${villainUpdate.newName}`);
-            console.log(response);
+            return response;
         })
         .catch((error)=>{
             console.error(error);
@@ -106,15 +50,14 @@ angular
     };
 
     service.updateVillainImage = (villainUpdate)=>{
-        console.warn(villainUpdate.character_name, villainUpdate.character_image);
-        return $http({ //image
+        return $http({
             url: "/villainsImage",
             data: villainUpdate,
             method: "PUT"
         })
         .then((response)=>{
             console.log(`villain image updated`);
-            console.log(response);
+            return(response);
         })
         .catch((error)=>{
             console.error(error);
@@ -122,16 +65,15 @@ angular
     };
 
 
-    //Delete
+    // DELETE
     service.deleteVillain = (villain)=>{
         console.log(`say goodbye to ${villain}`);
+
         return $http({
-            url: "/villains",
-            data: villain,
+            url: "/villains/"+villain,
             method: "DELETE"
         })
         .then((response)=>{
-            console.log(response);
             return response.data;
         })
         .catch((err)=>{
