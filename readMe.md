@@ -58,3 +58,4 @@ SQL stuff to paste into your query tool (postgres) and make a table that works w
 
     
     Not sure how to get the data create commands just yet..
+        look into it later here: https://www.postgresql.org/docs/10/sql-copy.html

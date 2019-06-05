@@ -53,7 +53,7 @@ function VillainController(earthwormJimService, $location) {
             .catch((err)=>{
             console.error(err);
             })
-        }); 
+        });
     };
 
     ctrl.destroyVillain = (villainName)=>{
