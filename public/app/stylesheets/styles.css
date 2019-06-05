@@ -93,8 +93,8 @@ villains, hero{
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    justify-items: center;
+    justify-content: space-around;
+    justify-items: space-around;  
     align-content: center;
     align-items: center;
 }
@@ -159,4 +159,8 @@ villains, hero{
 input{
     text-align: center !important;
     color: black;
+}
+
+button{
+    color: red;
 }

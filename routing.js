@@ -44,15 +44,14 @@ router.get("/villains", (req, res) => {
     });
 
 // POST
-
 router.post("/villains", (req, res) => {
-    let newCharacter = req.body;
+    let newVillain = req.body;
     let sql = "INSERT INTO earthworm_jim_characters(character_name, character_alignment, character_image) " + "VALUES ($1::text, $2::text, $3::text)";
-    let values = [newCharacter.character_name, newCharacter.charachter_alignment, newCharacter.character_image];
-    console.log(req.body);
+    let values = [newVillain.character_name, newVillain.character_alignment, newVillain.character_image];
+    console.error(newVillain);
         pool.query(sql, values).then((result) => {
             res.status(201); // 201 Created
-            res.send(`${newCharacter.character_name} added successfully!`);
+            res.send(`${newVillain.character_name} added successfully!`);
             });
     });
 
@@ -61,13 +60,13 @@ router.post("/villains", (req, res) => {
     router.put("/villainsName", (req, res) => {
         let oldName = req.body.character_name;
         let newName = req.body.newName;
-        console.log(req.body.item_id, req.body.quantity);
-        let sql = `UPDATE earthworm_jim_characters SET character_name = ${newName} WHERE character_name=${oldName};`;
+        console.error(oldName, newName);
+        let sql = `UPDATE earthworm_jim_characters SET character_name = '${newName}' WHERE character_name = '${oldName}';`;
         pool.query(sql)
         .then((result)=>{
-            console.log("updated item quantity");
+            console.log(`Changed ${oldName}'s name to ${newName}`);
             res.status(204);
-            res.send("updated item quantity");
+            res.send("Name Change Successful!");
         })
         .catch((error)=>{
             console.error(error);
@@ -78,8 +77,8 @@ router.post("/villains", (req, res) => {
     router.put("/villainsImage", (req, res) => {
         let name = req.body.character_name;
         let newImage = req.body.character_image;
-        console.log(req.body.item_id, req.body.quantity);
-        let sql = `UPDATE earthworm_jim_characters SET character_image = ${newImage} WHERE character_name=${name};`;
+        console.error(name, newImage);
+        let sql = `UPDATE earthworm_jim_characters SET character_image = '${newImage}' WHERE character_name = '${name}';`;
         pool.query(sql)
         .then((result)=>{
             console.log("updated item quantity");
@@ -92,14 +91,16 @@ router.post("/villains", (req, res) => {
         });
 
 // DELETE
-
 router.delete("/villains", (req, res) => {
-    let name = req.body.character_name
-    let sql = `DELETE FROM earthworm_jim_characters WHERE character_name=${name}`;
+    let name = req.body;
+    console.error(name);
+    let sql = `DELETE FROM earthworm_jim_characters WHERE character_name = '${name}';`;
         pool.query(sql)
         .then((result) => {
-            res.status(204); // No Content
-            res.send(`Deleted ${name} from the Villains list, did they die or have a change of heart?`);
+            res.status(204).send(`Deleted ${name} from the Villains list, did they die or have a change of heart?`);
+        })
+        .catch((err)=>{
+            console.error(err);
         });
     });
     

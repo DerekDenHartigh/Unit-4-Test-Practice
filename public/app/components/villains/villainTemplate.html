@@ -8,12 +8,12 @@
                     <br><input class="villainInput" type="text" ng-model="villain.newName" placeholder="new name here">
                     <br><button class="villainButton" ng-click="$ctrl.renameVillain(villain.character_name, villain.newName)">Rename!</button>
                 </label>
-
-                <label>Change Villain's image:
+<br>
+                <label>Change Villain's Image:
                     <br><input class="villainInput" type="text" ng-model="villain.newImage" placeholder="drop an img url">
                     <br><button class="villainButton" ng-click="$ctrl.changeVillainImage(villain.character_name, villain.newImage)">Change Image!</button>
                 </label>
-
+<br>
                 <!-- <label>Change Villain's name & image:
                     <input class="villainInput" type="text" ng-model="villain.newImage" placeholder="drop an img url">
                     <button class="villainButton" ng-click="$ctrl.changeVillainImage(villain.character_name, villain.newImage)">Change Image!</button>
@@ -27,3 +27,8 @@
         <img class="villainImage" ng-src="{{villain.character_image}}" fallback-src="https://www.kargomaster.com/pub/media/catalog/product/placeholder/default/sorry-image-not-available.jpg" ng-click="show=!show"></img>
     </div>
 </div>
+<label>Add Villain:
+    <br><input class="villainInput" type="text" ng-model="$ctrl.name" placeholder="Villain's Name?">
+    <br><input class="villainInput" type="text" ng-model="$ctrl.image" placeholder="drop an img url">
+    <br><button class="villainButton" ng-click="$ctrl.createVillain($ctrl.name, $ctrl.image)">Muhahahaha!</button>
+</label>

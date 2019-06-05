@@ -27,6 +27,3 @@ angular
     templateUrl: '/app/components/hero/heroTemplate.html',
     controller: HeroController
 });
-
-
-"use strict";
