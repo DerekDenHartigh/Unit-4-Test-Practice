@@ -32,4 +32,29 @@ User stories:
     user is alerted when invalid villain is targeted for removal/updating
 
 
-FYI a lot of the text was shamelessly ripped from the internet from wikipedia and 
+FYI a lot of the text was shamelessly ripped from the internet from wikipedia and wikia
+
+SQL stuff to paste into your query tool (postgres) and make a table that works w/this app:
+
+    -- Table: public.earthworm_jim_characters
+
+    -- DROP TABLE public.earthworm_jim_characters;
+
+    CREATE TABLE public.earthworm_jim_characters
+    (
+        id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+        character_name character varying(40) COLLATE pg_catalog."default" NOT NULL,
+        character_alignment character varying(20) COLLATE pg_catalog."default" NOT NULL,
+        character_image character varying(200) COLLATE pg_catalog."default",
+        CONSTRAINT earthworm_jim_characters_pkey PRIMARY KEY (id)
+    )
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+    ALTER TABLE public.earthworm_jim_characters
+        OWNER to postgres;
+
+    
+    Not sure how to get the data create commands just yet..
