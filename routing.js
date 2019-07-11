@@ -6,7 +6,7 @@ const secret = require("./secret.js"); // imports my secret.js which contains my
 const pg = require('pg'); // imports postgress module
 const pool = new pg.Pool({ // uses Pool class of pg module to make new pool for running db server
     user: "postgres", // software db is on
-    password: secret.password, // authentication
+    password: secret.password, // authentication, brings in password from .gitignored file
     host: "localhost", // where its being served from
     port: 5432, // which port is it being served on
     database: "Unit4Test", // which database is getting served up
