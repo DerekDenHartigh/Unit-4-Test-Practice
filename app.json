@@ -1,0 +1,4 @@
+{   
+    "name": "earthwormjim",   
+    "description": "Full stack earthworm jim app hosted on heroku with functional hosted database",   
+    "image": "heroku/nodejs" } 
