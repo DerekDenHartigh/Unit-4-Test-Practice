@@ -2,20 +2,44 @@
 
 const express = require("express"); // imports express module
 const router = express.Router();  // Router has to be capital
-const secret = require("./secret.js"); // imports my secret.js which contains my password for the db
-const pg = require('pg'); // imports postgress module
-const pool = new pg.Pool({ // uses Pool class of pg module to make new pool for running db server
-    user: "postgres", // software db is on
-    password: secret.password, // authentication, brings in password from .gitignored file
-    host: "localhost", // where its being served from
-    port: 5432, // which port is it being served on
-    database: "Unit4Test", // which database is getting served up
-    ssl: false // security authentication (http not https)
+
+/* pg admin, local server wiring */
+// const secret = require("./secret.js"); // imports my secret.js which contains my password for the db
+// const pg = require('pg'); // imports postgress module
+// const pool = new pg.Pool({ // uses Pool class of pg module to make new pool for running db server
+//     user: "postgres", // software db is on
+//     password: secret.password, // authentication, brings in password from .gitignored file
+//     host: "localhost", // where its being served from
+//     port: 5432, // which port is it being served on
+//     database: "Unit4Test", // which database is getting served up
+//     ssl: false // security authentication (http not https)
+// });
+
+// pool.on('error', (err) => { // logs pool errors
+//     console.error('An idle client has experienced an error', err.stack)
+//   })
+
+/* Heroku postgress wiring */
+
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
 });
 
-pool.on('error', (err) => { // logs pool errors
-    console.error('An idle client has experienced an error', err.stack)
-  })
+client.connect();
+
+client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+
+
+
 
 // GET
 
